@@ -1,5 +1,9 @@
 .idea
 .idea/*
+.idea/libraries
+.idea/.name
+.idea/workspace.xml
+/.idea/workspace.xml
 target/
 target/generated-sources/
 target/generated-test-sources/
@@ -9,3 +13,6 @@ target/site
 *.iml
 *.ipr
 *.iws
+.allure
+
+
