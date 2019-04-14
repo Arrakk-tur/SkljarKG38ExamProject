@@ -25,7 +25,7 @@ public class ActionsWithOurElements {
         try {
             element.clear();
             element.sendKeys(text);
-            logger.info(text + "Was input into element");
+            logger.info("'" + text + "'" + " was input into element");
         }catch (Exception e){
             printErrorAndStopTest(e);
         }
