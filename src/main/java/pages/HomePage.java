@@ -1,5 +1,6 @@
 package pages;
 
+import io.qameta.allure.Step;
 import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -21,6 +22,9 @@ public class HomePage extends ParentPage {
     @FindBy(xpath = ".//a[@id='logout']")
     private WebElement buttonLogout;
 
+    @FindBy(xpath = ".//ul[@id='navigation']/li[1]")
+    private WebElement firstItemInHeaderNav;
+
     public void openPage() {
         try {
             webDriver.get("https://www.sam-dom.com.ua");
@@ -35,12 +39,19 @@ public class HomePage extends ParentPage {
         actionsWithOurElements.clickOnElement(registrationButton);
     }
 
+    @Step
     public void clickVhodButton() {
         actionsWithOurElements.clickOnElement(vhodButton);
     }
 
+    @Step
     public void clickLogoutButton() {
         actionsWithOurElements.clickOnElement(buttonLogout);
+    }
+
+    @Step
+    public void clickFirstItemInHeaderNav(){
+        actionsWithOurElements.clickOnElement(firstItemInHeaderNav);
     }
 
 }
