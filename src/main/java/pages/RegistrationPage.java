@@ -1,5 +1,6 @@
 package pages;
 
+import io.qameta.allure.Step;
 import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -28,14 +29,17 @@ public class RegistrationPage extends ParentPage {
     private WebElement buttonSubmit;
 
 
+    @Step
     public void enterTextInToInputEmail(String email) {
         actionsWithOurElements.enterTextInToElement(inputEmail, email);
     }
 
+    @Step
     public void enterTextInToInputPassword(String pswd) {
         actionsWithOurElements.enterTextInToElement(inputPassword, pswd);
     }
 
+    @Step
     public void enterTextInToInputName(String name) {
         actionsWithOurElements.enterTextInToElement(inputName, name);
     }
@@ -44,6 +48,7 @@ public class RegistrationPage extends ParentPage {
         actionsWithOurElements.enterTextInToElement(inputPhone, phone);
     }
 
+    @Step
     public void clickSubmitButton() {
         actionsWithOurElements.clickOnElement(buttonSubmit);
     }

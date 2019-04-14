@@ -71,14 +71,6 @@ public class ActionsWithOurElements {
             printErrorAndStopTest(e);
         }
     }
-    //TODO DZ
-    public void selectTextInDropdownByUI(){
-
-    }
-    //TODO DZ
-    public void selectCheckbox(WebElement element, String index){
-
-    }
 
     public void setStatusCheckbox(WebElement element, String neededStatus){
         if("check".equals(neededStatus) || "uncheck".equals(neededStatus)){
@@ -124,5 +116,16 @@ public class ActionsWithOurElements {
         }catch (Exception e){
             printErrorAndStopTest(e);
         }
+    }
+
+    public String getElementText(WebElement element){
+        try {
+            String elementText = element.getText();
+            logger.info("Text in element: " + elementText);
+            return elementText;
+        }catch (Exception e){
+            printErrorAndStopTest(e);
+        }
+        return null;
     }
 }
