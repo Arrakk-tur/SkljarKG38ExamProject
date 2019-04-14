@@ -19,7 +19,7 @@ public class LoginPage extends ParentPage {
     @FindBy(xpath = ".//input[@id='loginform-password']")
     private WebElement inputPassword;
 
-    @FindBy(xpath = ".//button[@name='signup-button']")
+    @FindBy(xpath = ".//button[@name='login-button']")
     private WebElement buttonSubmit;
 
 

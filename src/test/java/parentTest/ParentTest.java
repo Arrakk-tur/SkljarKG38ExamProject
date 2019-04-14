@@ -10,8 +10,7 @@ import org.openqa.selenium.firefox.FirefoxOptions;
 import org.openqa.selenium.ie.InternetExplorerDriver;
 import org.openqa.selenium.remote.CapabilityType;
 import org.openqa.selenium.remote.DesiredCapabilities;
-import pages.HomePage;
-import pages.LoginPage;
+import pages.*;
 
 import java.io.File;
 import java.util.concurrent.TimeUnit;
@@ -20,6 +19,9 @@ public class ParentTest {
     WebDriver webDriver;
     protected LoginPage loginPage;
     protected HomePage homePage;
+    protected RegistrationPage registrationPage;
+    protected CatalogPage catalogPage;
+    protected ProductsPage productsPage;
 
     String browser = System.getProperty("browser");
 
@@ -32,8 +34,9 @@ public class ParentTest {
 
         loginPage = new LoginPage(webDriver);
         homePage = new HomePage(webDriver);
-
-
+        registrationPage = new RegistrationPage(webDriver);
+        catalogPage = new CatalogPage(webDriver);
+        productsPage = new ProductsPage(webDriver);
     }
 
     @After

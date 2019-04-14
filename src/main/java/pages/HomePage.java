@@ -25,13 +25,16 @@ public class HomePage extends ParentPage {
     @FindBy(xpath = ".//ul[@id='navigation']/li[1]")
     private WebElement firstItemInHeaderNav;
 
+    @FindBy(xpath = ".//li[@id='username']")
+    private WebElement userName;
+
     public void openPage() {
         try {
             webDriver.get("https://www.sam-dom.com.ua");
-            logger.info("Login page was opened");
+            logger.info("Home page was opened");
         }catch (Exception e){
-            logger.error("Can not open Login Page " + e);
-            Assert.fail("Can not open Login Page " + e);
+            logger.error("Can not open Home Page " + e);
+            Assert.fail("Can not open Home Page " + e);
         }
     }
 
@@ -54,4 +57,12 @@ public class HomePage extends ParentPage {
         actionsWithOurElements.clickOnElement(firstItemInHeaderNav);
     }
 
+    @Step
+    public String getUserName (){
+        return actionsWithOurElements.getElementText(userName);
+    }
+    @Step
+    public boolean isRegistrationButtonPresent() {
+        return actionsWithOurElements.isElementPresent(registrationButton);
+    }
 }
