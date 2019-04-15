@@ -22,7 +22,7 @@ public class HomePage extends ParentPage {
     @FindBy(xpath = ".//a[@id='logout']")
     private WebElement buttonLogout;
 
-    @FindBy(xpath = ".//ul[@id='navigation']/li[1]")
+    @FindBy(xpath = ".//ul[@id='navigation']/li[1]/a")
     private WebElement firstItemInHeaderNav;
 
     @FindBy(xpath = ".//li[@id='username']")

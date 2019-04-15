@@ -10,7 +10,7 @@ public class ProductsPage extends ParentPage {
         super(webDriver);
     }
 
-    @FindBy(xpath = ".//div[@id='product-list']//div[@class='col-md-4 col-sm-6 col-xs-12 '][1]//button")
+    @FindBy(xpath = "//div[@id='product-list']//div[1]//div[1]//div[1]//div[2]//div[2]//button[1]")        // ".//div[@id='product-list']/div[@class='col-md-4 col-sm-6 col-xs-12 '][1]//button")
     private WebElement buyButtonForFirstItem;
 
     @FindBy(xpath = ".//a[@class='btn btn-checkout']")
@@ -20,7 +20,7 @@ public class ProductsPage extends ParentPage {
     private WebElement deleteButton;
 
     @FindBy(xpath = ".//button[@id='cart-modal-button']/span[@class='badge']")
-    private WebElement trashCounter;
+    private WebElement basketCounter;
 
     @Step
     public void clickBuyButtonForFirstItem(){
@@ -28,30 +28,31 @@ public class ProductsPage extends ParentPage {
     }
 
     @Step
-    public void clickDeleteButtonInTrashPopup(){
+    public void clickDeleteButtonInBasketPopup(){
         actionsWithOurElements.clickOnElement(deleteButton);
     }
 
     @Step
-    public void ischeckoutButtonPresent(){
-        actionsWithOurElements.isElementPresent(checkoutBuuton);
+    public boolean isCheckoutButtonPresent(){
+        return actionsWithOurElements.isElementPresent(checkoutBuuton);
     }
 
     @Step
-    public boolean isTrashIsEmpty() {
-        return actionsWithOurElements.getElementText(trashCounter).equals("0");
+    public boolean isBasketIsEmpty() {
+        return actionsWithOurElements.getElementText(basketCounter).equals("0");
     }
 
     @Step
-    public void confirmDeleteItemfromTrash(){
+    public void confirmDeleteItemFromBasket(){
         webDriver.switchTo().alert().accept();
     }
 
     @Step
-    public void addItemInTrash(){
+    public void addItemToBasket(){
         HomePage homePage = new HomePage(webDriver);
         CatalogPage catalogPage = new CatalogPage(webDriver);
 
+        homePage.openPage();
         homePage.clickFirstItemInHeaderNav();
         catalogPage.clickBySubmenuElement();
         clickBuyButtonForFirstItem();

@@ -9,6 +9,8 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+import javax.lang.model.element.Name;
+
 public class ActionsWithOurElements {
 
     WebDriver webDriver;
@@ -33,7 +35,7 @@ public class ActionsWithOurElements {
 
     public void clickOnElement(WebElement element) {
         try {
-            wait10.until(ExpectedConditions.elementToBeClickable(element));
+            wait15.until(ExpectedConditions.elementToBeClickable(element));
             element.click();
             logger.info("Element was clicked");
         }catch (Exception e){
@@ -120,6 +122,7 @@ public class ActionsWithOurElements {
 
     public String getElementText(WebElement element){
         try {
+            wait15.until(ExpectedConditions.elementToBeClickable(element));
             String elementText = element.getText();
             logger.info("Text in element: " + elementText);
             return elementText;
